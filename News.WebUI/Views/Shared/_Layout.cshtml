@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        
+
+        .container {
+            width: 90%;
+        }
+
+        .logo {
+            text-align: left;
+            font-size: 28px;
+        }
+
+        ul.nav li {
+            width: 124px;
+            background-color: #0ff;
+        }
+
+            ul.nav li.active {
+                background-color: #428bca;
+                color: #f00;
+            }
+
+        #searchtext {
+            width: 200px;
+        }
+
+        #searchType {
+            height: 34px;
+        }
+        .search {margin: 10px auto; width:50%;}
+        #main {font-size: 0;}
+    </style>
+    @RenderSection("style")
+</head>
+<body>
+    <div class="container">
+        <div class="logo">新闻发布系统</div>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="#">首页</a></li>
+            <li role="presentation"><a href="#">时事</a></li>
+            <li role="presentation"><a href="#">经济</a></li>
+            <li role="presentation"><a href="#">军事</a></li>
+            <li role="presentation"><a href="#">科技</a></li>
+            <li role="presentation"><a href="#">生活</a></li>
+            <li role="presentation"><a href="#">社会</a></li>
+            <li role="presentation"><a href="#">体育</a></li>
+            <li role="presentation"><a href="#">娱乐</a></li>
+        </ul>
+        <div class="search">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="searchtext">输入关键字</label>
+                    <input type="text" class="form-control" id="searchtext" placeholder="">
+                </div>
+                <div class="form-group">
+                    <select id="searchType" name="searchType">
+                        <option>时事</option>
+                        <option>经济</option>
+                        <option>军事</option>
+                        <option>科技</option>
+                        <option>生活</option>
+                        <option>社会</option>
+                        <option>体育</option>
+                        <option>娱乐</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+        </div>
+        <div id="main">
+            @RenderBody()
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("^/bundles/commonlib")
+
+    <script>
+        $(function () {
+            $('.nav li').click(function () {
+                $('.nav li').removeClass('active');
+                $(this).addClass('active');
+            })
+        })
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
